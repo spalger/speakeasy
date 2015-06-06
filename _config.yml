@@ -1,0 +1,12 @@
+# Site settings
+title: spalger speaks
+email: email@spalger.com
+description: >
+  Just some things I want to remember, or I think others might find interesting.
+baseurl: ""
+url: "https://spalger.com" # the base hostname & protocol for your site
+twitter_username: spalger
+github_username:  spenceralger
+
+# Build settings
+markdown: kramdown
