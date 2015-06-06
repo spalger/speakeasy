@@ -3,8 +3,8 @@ title: spalger speaks
 email: email@spalger.com
 description: >
   Just some things I want to remember, or I think others might find interesting.
-baseurl: ""
-url: "https://spalger.com" # the base hostname & protocol for your site
+baseurl: "/speakeasy"
+url: "http://spalger.github.io"
 twitter_username: spalger
 github_username:  spenceralger
 
