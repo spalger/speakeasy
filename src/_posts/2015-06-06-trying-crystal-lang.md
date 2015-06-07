@@ -106,7 +106,7 @@ deps do
 end
 ```
 
-Then, run `crystal deps` and it will install the amatista dependency into a `.deps` directory in your project. This `.deps` directory reminds me of node.js`s `node_modules` directory with a local copy of the dependencies needed for this specific project. It is a style that I really like.
+Then, run `crystal deps` and it will install the amatista dependency into a `.deps` directory in your project. This `.deps` directory reminds me of node.js's `node_modules` directory with a local copy of the dependencies needed for this specific project. It is a style that I really like.
 
 
 

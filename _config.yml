@@ -5,8 +5,8 @@ description: >
   Just sharing what I've learned, and recording things I don't want to forget.
 baseurl: ""
 url: "http://spalger.github.io"
-twitter_username: spalger
-github_username:  spenceralger
+twitter_username: spenceralger
+github_username:  spalger
 timezone:      "America/Phoenix"
 
 # Custom vars
@@ -14,6 +14,9 @@ tags_route:  "/tags/@tag@"
 
 # Where things are
 source:      ./src
+include:
+  - .env
+  - .static
 gems:
   - emoji_for_jekyll
   - octopress-autoprefixer
