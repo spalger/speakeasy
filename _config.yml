@@ -21,6 +21,7 @@ gems:
   - emoji_for_jekyll
   - octopress-autoprefixer
   - jekyll-auto-image
+  - jekyll-sitemap
 collections:
   - projects
   # - libraries
