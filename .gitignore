@@ -1,2 +1,4 @@
 gh-pages
 .sass-cache
+_deploy.yml
+.DS_Store
