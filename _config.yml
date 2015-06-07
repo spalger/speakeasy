@@ -20,6 +20,7 @@ include:
 gems:
   - emoji_for_jekyll
   - octopress-autoprefixer
+  - jekyll-auto-image
 collections:
   - projects
   # - libraries

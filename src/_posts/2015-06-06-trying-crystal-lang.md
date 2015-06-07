@@ -7,7 +7,7 @@ tags:   crystal languages opinion
 
 Last night a new-ish language named [Crystal](http://crystal-lang.org/) had climbed to the top of [Hacker News](https://web.archive.org/web/20150606041438/https://news.ycombinator.com/). I was bored, I clicked through, and a magical gem convinced me I had to give Crystal a try.
 
-![Crystal trance generator]({{ "/imgs/2015-06-06-trying-crystal-lang/crystal.gif" | prepend: site.baseurl }}){: .hero-image }
+![Crystal trance generator](/imgs/2015-06-06-trying-crystal-lang/crystal.gif){: .hero-image }
 
 ## ruby syntax, c-level performance
 

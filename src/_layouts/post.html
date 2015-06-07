@@ -4,6 +4,14 @@ layout: default
 <div class="post">
 
   <header class="post-header">
+    <div itemscope itemtype="http://schema.org/Article">
+      <h2 itemprop="headline">{{ page.title }}</h2>
+      <span itemprop="description">{{ page.excerpt }}</span>
+      <span itemprop="articleBody">{{ content }}</span>
+      <img itemprop="image" src="{{ page.image }}" alt="{{ page.title }}"/>
+      <meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}"/>
+    </div>
+
     <h1>{{ page.title }}</h1>
 
     <p class="post-meta">
