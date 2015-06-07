@@ -1,12 +1,31 @@
 # Site settings
-title: spalger speaks
+title: spalger's speakeasy
 email: email@spalger.com
 description: >
-  Just some things I want to remember, or I think others might find interesting.
+  Just some things I think others might find interesting, that I just don't want to forget.
 baseurl: "/speakeasy"
 url: "http://spalger.github.io"
 twitter_username: spalger
 github_username:  spenceralger
+timezone:      "America/Phoenix"
 
-# Build settings
+# Custom vars
+tags_route:  "/speakeasy/tags/@tag@"
+
+# Where things are
+source:      ./src
+destination: ./gh-pages
+gems:
+  - emoji_for_jekyll
+collections:
+  - projects
+  # - libraries
+  # - experience
+  # - expertise
+
+# conversion
 markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
