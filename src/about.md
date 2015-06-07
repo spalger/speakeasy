@@ -1,7 +1,6 @@
 ---
 layout: page
 title: About
-permalink: /me/
 ---
 
 So... I'm a web developer and gadget fanatic who digs JavaScript, Apple, and a bunch of other things. To understand my current interests I suggest checking out my blog.

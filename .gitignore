@@ -1,4 +1,6 @@
-gh-pages
+_site
 .sass-cache
 _deploy.yml
 .DS_Store
+node_modules
+src/components

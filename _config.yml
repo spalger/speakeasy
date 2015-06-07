@@ -2,21 +2,21 @@
 title: spalger's speakeasy
 email: email@spalger.com
 description: >
-  Just some things I think others might find interesting, that I just don't want to forget.
-baseurl: "/speakeasy"
+  Just sharing what I've learned, and recording things I don't want to forget.
+baseurl: ""
 url: "http://spalger.github.io"
 twitter_username: spalger
 github_username:  spenceralger
 timezone:      "America/Phoenix"
 
 # Custom vars
-tags_route:  "/speakeasy/tags/@tag@"
+tags_route:  "/tags/@tag@"
 
 # Where things are
 source:      ./src
-destination: ./gh-pages
 gems:
   - emoji_for_jekyll
+  - octopress-autoprefixer
 collections:
   - projects
   # - libraries

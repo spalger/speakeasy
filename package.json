@@ -1,0 +1,7 @@
+{
+  "name": "spalger.com",
+  "private": true,
+  "devDependencies": {
+    "bower": "^1.4.1"
+  }
+}

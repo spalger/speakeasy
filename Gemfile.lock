@@ -1,10 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    autoprefixer-rails (2.2.0.20140804)
+      execjs
     celluloid (0.16.0)
       timers (~> 4.0.0)
     colorator (0.1)
     emoji_for_jekyll (0.2.1)
+    execjs (2.5.2)
     ffi (1.9.8)
     hitimes (1.2.2)
     jekyll (3.0.0.pre.beta6)
@@ -27,14 +30,34 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     mercenary (0.3.5)
+    octopress (3.0.7)
+      jekyll (>= 2.0)
+      mercenary (~> 0.3.2)
+      octopress-deploy
+      octopress-escape-code (~> 2.0)
+      octopress-hooks (~> 2.0)
+      redcarpet (~> 3.0)
+      titlecase
+    octopress-autoprefixer (1.0.1)
+      autoprefixer-rails (~> 2.2)
+      jekyll (>= 2.0)
+      octopress-hooks (~> 2.0)
+    octopress-deploy (1.2.4)
+      colorator
+    octopress-escape-code (2.0.6)
+      octopress-hooks (~> 2.0)
+    octopress-hooks (2.6.1)
+      jekyll (>= 2.0)
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
+    redcarpet (3.3.0)
     rouge (1.9.0)
     safe_yaml (1.0.4)
     sass (3.4.14)
     timers (4.0.1)
       hitimes
+    titlecase (0.1.1)
 
 PLATFORMS
   ruby
@@ -43,6 +66,8 @@ DEPENDENCIES
   emoji_for_jekyll
   jekyll (= 3.0.0.pre.beta6)
   kramdown (>= 1.5.0)
+  octopress
+  octopress-autoprefixer
   rouge
 
 BUNDLED WITH

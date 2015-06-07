@@ -68,13 +68,13 @@ cd hello_world
 
 Then open up `src/hello_world.cr` and replace
 
-```crystal
+```rb
 # TODO Put your code here
 ```
 
 with
 
-```crystal
+```rb
 puts "hello world"
 ```
 
@@ -100,7 +100,7 @@ To get the ball rolling I pulled in [github.com/werner/todo_crystal](https://git
 
 Right around here is when I realized that a **very** important part of the ruby experience is missing from Crystal: gems! :scream_cat: There is a [very popular issue](https://github.com/manastech/crystal/issues/220) where people are discussing what a dependency management system for Crystal should look like, but for now there is a rudimentary dependency management task provided by the cli: `crystal deps`. This command reads a `Packagefile` and uses it to pull repositories from Github into your project. To add amatista to your project you can create a `Packagefile` that looks like this:
 
-```crystal
+```rb
 deps do
   github "werner/amatista"
 end
