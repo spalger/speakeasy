@@ -14,7 +14,7 @@ function checkout {
 
 function build {
   cd "$root"
-  jekyll build
+  jekyll build --config _config.yml,_config.production.yml
 }
 
 function push {

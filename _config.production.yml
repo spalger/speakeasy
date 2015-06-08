@@ -1,0 +1,9 @@
+# Custom vars
+production: true
+
+#
+# Plugin: jekyll-assets
+#
+assets:
+  cachebust: hard
+  debug: false

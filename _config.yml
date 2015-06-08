@@ -11,6 +11,7 @@ timezone:      "America/Phoenix"
 
 # Custom vars
 tags_route:  "/tags/@tag@"
+production: false
 
 # Where things are
 source:      ./src
