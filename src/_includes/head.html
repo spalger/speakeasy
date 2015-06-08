@@ -19,5 +19,48 @@
 
     ga('create', 'UA-63829041-1', 'auto');
     ga('send', 'pageview');
+
+    // not a fan either...
+    window.provide = (function () {
+      var providers = {};
+      var modules = {};
+
+      var provide = function (name, provider) {
+        providers[name] = provider;
+
+        var main = document.querySelector('[provider-main]').getAttribute('provider-main');
+        if (name === main) load(name);
+      };
+
+      var load = function (name) {
+        if (!modules[name]) init(name);
+        return modules[name].exports;
+      };
+
+      var init = function (name) {
+        var module = modules[name] = {};
+        var exports = module.exports = {};
+        var provider = providers[name];
+
+        if (!provider) {
+          throw new Error('unknown provider ' + name);
+        }
+
+        try {
+          provider.call(module, module, exports, load);
+        } catch (e) {
+          if (e.$$_inProviderChain) {
+            e.message += ' <- ' + name;
+          } else {
+            e.$$_inProviderChain = true;
+            e.message += ' while loading module: ' + name;
+          }
+
+          throw e;
+        }
+      };
+
+      return provide;
+    }());
   </script>
 </head>

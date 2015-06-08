@@ -52,4 +52,6 @@ assets:
     - _assets/imgs
     - _assets/components
 
+  cachebust: none
+  cache: false
   debug: true

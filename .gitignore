@@ -1,6 +1,6 @@
 _site
 .sass-cache
-_deploy.yml
+src/.jekyll-assets-cache
 .DS_Store
 node_modules
-src/components
+src/_assets/components
