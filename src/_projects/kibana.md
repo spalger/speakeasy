@@ -3,7 +3,7 @@ title: "Kibana 4"
 order: 0
 repo:  "https://github.com/elastic/kibana"
 url:   "https://www.elastic.co/products/kibana"
-logo:  "/imgs/projects/kibana.png"
+logo:  "kibana.png"
 uses:
   - js
   - node

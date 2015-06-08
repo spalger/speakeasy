@@ -15,9 +15,9 @@ title: Projects
         <div class="project-header-left">
           <h2>
             {% if project.logo %}
-              <img src="{{project.logo | prepend: site.baseurl }}" alt="{{project.title}}">
+              <img src="{{ project.logo | asset_path }}" alt="{{project.title}}">
             {% else %}
-              {{project.title}}
+              {{ project.title }}
             {% endif %}
           </h2>
 

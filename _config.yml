@@ -14,19 +14,22 @@ tags_route:  "/tags/@tag@"
 
 # Where things are
 source:      ./src
+sass_dir: _assets/style
 include:
   - .env
   - .static
 gems:
   - emoji_for_jekyll
-  - octopress-autoprefixer
   - jekyll-auto-image
   - jekyll-sitemap
+
 collections:
   - projects
   # - libraries
   # - experience
   # - expertise
+
+safe: false
 
 # conversion
 markdown: kramdown
@@ -34,3 +37,19 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+#
+# Plugin: jekyll-assets
+#
+assets:
+
+  #
+  # Pathnames where to find assets relative to the root of the site.
+  #
+  sources:
+    - _assets/js
+    - _assets/style
+    - _assets/imgs
+    - _assets/components
+
+  debug: true
