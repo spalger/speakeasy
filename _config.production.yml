@@ -7,3 +7,5 @@ production: true
 assets:
   cachebust: hard
   debug: false
+  js_compressor:  uglifier
+  css_compressor: sass
