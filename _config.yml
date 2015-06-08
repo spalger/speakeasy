@@ -54,5 +54,4 @@ assets:
     - _assets/components
 
   cachebust: none
-  cache: false
   debug: true

@@ -1,14 +1,12 @@
 /**
  * Content wrapper, sets content width
  */
-.content-wrapper {
+
+@mixin content-container() {
   width: $content-width;
-  margin: $spacing-unit auto;
-  padding: 0 $spacing-unit;
+  margin: auto;
 
   @include media-query($on-laptop) {
-    margin: $spacing-unit;
-    padding: 0;
     width: auto;
   }
 }
@@ -19,9 +17,26 @@
 .site-header {
   border-top: 5px solid $grey-color-dark;
   border-bottom: 1px solid $grey-color-light;
-  display: flex;
-  align-items: center;
   padding: 15px;
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    @include content-container;
+
+    @include media-query($on-palm) {
+      display: block;
+      text-align: center;
+
+      .site-nav {
+        display: flex;
+        > * {
+          flex: 1 1 1px;
+          text-align: center;
+        }
+      }
+    }
+  }
 
   .site-title {
     font-size: 26px;
@@ -42,19 +57,6 @@
       padding: 10px;
     }
   }
-
-  @include media-query($on-palm) {
-    display: block;
-    text-align: center;
-
-    .site-nav {
-      display: flex;
-      > * {
-        flex: 1 1 1px;
-        text-align: center;
-      }
-    }
-  }
 }
 
 
@@ -63,6 +65,11 @@
  */
 .site-footer {
   border-top: 1px solid $grey-color-light;
+}
+
+.footer-content {
+  padding: $spacing-unit;
+  @include content-container;
 }
 
 .footer-heading {
@@ -102,7 +109,8 @@
  * Page content
  */
 .page-content {
-  padding: $spacing-unit * 2 0;
+  padding: $spacing-unit * 3 $spacing-unit $spacing-unit * 2;
+  @include content-container;
 }
 
 .post-list {
