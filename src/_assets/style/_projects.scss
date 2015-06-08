@@ -4,60 +4,30 @@
   .project {
     padding-top: 2em;
 
-    .logo-js {
+    @mixin project-uses ($icon_url: false) {
       height: 1em;
       width: 1em;
       display: inline-block;
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-image: url(/imgs/projects/js-icon.png);
+
+      @if $icon_url {
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url($icon_url);
+      }
     }
 
-    .logo-crystal {
-      height: 1em;
-      width: 1em;
-      display: inline-block;
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-image: url(/imgs/projects/crystal-icon.png);
-    }
-
-    .logo-node {
-      height: 1em;
-      width: 1em;
-      display: inline-block;
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-image: url(/imgs/projects/node-icon.png);
-    }
-
-    .logo-angular {
-      height: 1em;
-      width: 1em;
-      display: inline-block;
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-image: url(/imgs/projects/angular-icon.svg);
-    }
-
+    .logo-js { @include project-uses(asset_path("js-icon.png")); }
+    .logo-node { @include project-uses(asset_path("node-icon.png")); }
+    .logo-angular { @include project-uses(asset_path("angular-icon.svg")); }
     .logo-less {
-      height: 1em;
+      @include project-uses(asset_path("less-icon.png"));
       width: 2.5em;
-      display: inline-block;
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-image: url(/imgs/projects/less-icon.png);
     }
 
     .logo-crystal {
-      height: 1em;
-      width: 1em;
-      display: inline-block;
+      @include project-uses;
+
       font: normal normal normal 14px/1 FontAwesome;
       font-size: inherit;
       text-rendering: auto;
