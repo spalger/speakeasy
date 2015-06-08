@@ -1,5 +1,6 @@
 # Custom vars
 production: true
+destination: ./_site_production
 
 #
 # Plugin: jekyll-assets

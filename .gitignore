@@ -1,4 +1,5 @@
 _site
+_site_production
 .sass-cache
 src/.jekyll-assets-cache
 .DS_Store

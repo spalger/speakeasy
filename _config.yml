@@ -6,15 +6,16 @@ description: >
 baseurl: ""
 url: "http://spalger.github.io"
 twitter_username: spenceralger
-github_username:  spalger
-timezone:      "America/Phoenix"
+github_username: spalger
+timezone: "America/Phoenix"
 
 # Custom vars
-tags_route:  "/tags/@tag@"
+tags_route: "/tags/@tag@"
 production: false
 
 # Where things are
-source:      ./src
+source: ./src
+destination: ./_site
 sass_dir: _assets/style
 include:
   - .env
