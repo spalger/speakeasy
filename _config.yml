@@ -1,17 +1,16 @@
 
 # SEO settings
-title: "Think"
-title2: "space" # default: ""
-description: "Just another minimalist Jekyll theme that focuses on technical writing."
-keywords: "Jekyll, theme, free, download, SEO, blog, web, minimalist, thinkspace"
-url: http://heiswayi.github.io/thinkspace # site url
-baseurl: "/thinkspace" # apply repo name if use it under gh-pages branch
-# baseurl: null # apply null if repo name is something like username.github.io
+title: "Spencer Alger"
+title2: "" # default: ""
+description: "Personal blog"
+keywords: "spalger, spencer alger, blog, javascript, node.js"
+url: https://spalger.com # site url
+baseurl: null
 
-google_analytics: UA-XXXXX-XX
-repo: http://github.com/heiswayi/thinkspace
-disqus_shortname: "heiswayi"
-twitter_username: "HeiswayiNrird"
+google_analytics: UA-86810340-1
+repo: http://github.com/spalger/spalger.com
+disqus_shortname: "spalgercom"
+twitter_username: "spalger"
 comments: true
 
 # Build settings
@@ -29,25 +28,28 @@ sass:
 
 # Author settings
 author:
-  name     : "Heiswayi Nrird"
-  job      : "R&D Software Engineer"
-  bio      : "1+1=3 is always TRUE in my world, a balance between binary and reality."
+  name     : "Spencer Alger"
+  job      : null
+  bio      : "Software Engineer, recovering karaoke junkie"
   thumb    : /images/author.jpg
-  email    : hnrird@gmail.com
-  url      : http://heiswayi.github.io
-  github   : http://github.com/heiswayi
-  twitter  : http://twitter.com/HeiswayiNrird
-  facebook : https://www.facebook.com/profile.php?id=1257583160
-  linkedin : http://linkedin.com/in/nrird
+  email    : email@spalger.com
+  url      : https://spalger.com
+  github   : https://github.com/spalger
+  twitter  : https://twitter.com/spalger
+  facebook : null
+  linkedin : null
 
 # social settings
 og_locale: "en_US"
 twitter_card: "summary_large_image"
-twitter_site: "@HeiswayiNrird"
+twitter_site: "@spalger"
 
 gems:
   - bourbon
   - jekyll-paginate
+  - emoji_for_jekyll
+  - jekyll-auto-image
+  - jekyll-sitemap
 
 # navbar pages
 navbar:
@@ -55,5 +57,12 @@ navbar:
     title: About
   - slug : blog
     title: Blog
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+collections:
+  - projects
 
 exclude: ["gulp", "node_modules", "bower", "bower_components", "config.rb", "src", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md"]
