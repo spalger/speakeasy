@@ -11,7 +11,7 @@ timezone: "America/Phoenix"
 
 # Custom vars
 tags_route: "/tags/@tag@"
-production: false
+production: true
 
 # Where things are
 source: ./src
@@ -54,5 +54,7 @@ assets:
     - _assets/imgs
     - _assets/components
 
-  cachebust: none
-  debug: true
+  cachebust: hard
+  debug: false
+  js_compressor:  uglifier
+  css_compressor: sass
