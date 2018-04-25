@@ -1,9 +1,0 @@
-{
-  "strict": false,
-  "node": true,
-  "asi": false,
-  "predef": [
-    "load",
-    "-require"
-  ]
-}
