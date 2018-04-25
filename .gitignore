@@ -1,8 +1,0 @@
-_site
-_site_production
-.sass-cache
-src/.jekyll-assets-cache
-src/.jekyll-metadata
-.DS_Store
-node_modules
-src/_assets/components

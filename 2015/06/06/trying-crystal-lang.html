@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Trying Crystal (the language)</title>
+  <meta name="description" content="Last night a new-ish language named Crystal had climbed to the top of Hacker News. I was bored, I clicked through, and a magical gem convinced me I had to gi...">
+
+  <link rel="stylesheet" href="/assets/main-e379d774738c1448a70778c78a3618df.css">
+
+  <link rel="canonical" href="http://spalger.github.io/2015/06/06/trying-crystal-lang.html">
+  <link rel="alternate" type="application/rss+xml" title="spalger's speakeasy" href="http://spalger.github.io/feed.xml" />
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-63829041-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+  <div class="header-content">
+    <div class="site-title">
+      <a href="/">spalger's speakeasy</a>
+    </div>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about.html">About</a>
+        
+      
+        
+      
+        
+      
+        
+        <a class="page-link" href="/projects.html">Projects</a>
+        
+      
+    </nav>
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="post">
+
+  <header class="post-header">
+    <div itemscope itemtype="http://schema.org/Article">
+      <h2 itemprop="headline">Trying Crystal (the language)</h2>
+      <span itemprop="description"><p>Last night a new-ish language named <a href="http://crystal-lang.org/">Crystal</a> had climbed to the top of <a href="https://web.archive.org/web/20150606041438/https://news.ycombinator.com/">Hacker News</a>. I was bored, I clicked through, and a magical gem convinced me I had to give Crystal a try.</p>
+
+</span>
+      <span itemprop="articleBody"><p>Last night a new-ish language named <a href="http://crystal-lang.org/">Crystal</a> had climbed to the top of <a href="https://web.archive.org/web/20150606041438/https://news.ycombinator.com/">Hacker News</a>. I was bored, I clicked through, and a magical gem convinced me I had to give Crystal a try.</p>
+
+<p><img src="/assets/crystal-lang-logo-1f2c8b528b22720552e5cac04eba6fe4.gif" alt="Crystal trance generator" class="hero-image" /></p>
+
+<h2 id="ruby-syntax-c-level-performance">ruby syntax, c-level performance</h2>
+
+<p>The front page of the projects site pretty clearly shows how similar Crystal is to ruby. Beyond the similarities in name, they both share some of the things I really like about ruby:</p>
+
+<ul>
+  <li>trailing <code class="highlighter-rouge">unless</code> and <code class="highlighter-rouge">if</code></li>
+  <li>implicit returns</li>
+  <li>funky method names, like <code class="highlighter-rouge">puts</code>, <code class="highlighter-rouge">Array#slice!</code>, and <code class="highlighter-rouge">File::exists?</code></li>
+  <li><code class="highlighter-rouge">"#{templated} string"</code></li>
+</ul>
+
+<p>And most of the things I don’t</p>
+
+<ul>
+  <li>using the <code class="highlighter-rouge">end</code> keyword to close a “block”</li>
+  <li>class getters and setters versus properties</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Doc</span>
+  <span class="n">property</span> <span class="n">breed</span>
+  <span class="n">property</span> <span class="n">weight</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="c1"># these set instance variables, which are then returned by the</span>
+    <span class="c1"># Dog#breed and Dog#weight accessor functions. They do not change</span>
+    <span class="c1"># the actually value of dog.weight or doc.breed, just the value those</span>
+    <span class="c1"># functions will return</span>
+    <span class="vi">@breed</span> <span class="o">=</span> <span class="s2">"collie"</span>
+    <span class="vi">@weight</span> <span class="o">=</span> <span class="mi">45</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<h2 id="img-classemoji-titleverticaltrafficlight-altverticaltrafficlight-srchttpsgithubglobalsslfastlynetimagesiconsemojiverticaltrafficlightpng-height20-width20-alignabsmiddle--install-with-brew"><img class="emoji" title="vertical_traffic_light" alt="vertical_traffic_light" src="https://github.global.ssl.fastly.net/images/icons/emoji/vertical_traffic_light.png" height="20" width="20" align="absmiddle" /> install with brew</h2>
+
+<p>After scanning the project’s docs I installed the compiler, which on OSX was super simple using homebrew:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>brew tap manastech/crystal
+brew install crystal
+</code></pre>
+</div>
+
+<p>This gives you the <code class="highlighter-rouge">crystal</code> cli, which can do a host of things for you. Run <code class="highlighter-rouge">crystal --help</code> for a quick run-down.</p>
+
+<h2 id="holy-hello-world-img-classemoji-titlerocket-altrocket-srchttpsgithubglobalsslfastlynetimagesiconsemojirocketpng-height20-width20-alignabsmiddle-">holy hello world <img class="emoji" title="rocket" alt="rocket" src="https://github.global.ssl.fastly.net/images/icons/emoji/rocket.png" height="20" width="20" align="absmiddle" /></h2>
+
+<p>One thing I really appreciate about Crystal is it’s devotion to keeping the experience ruby-like and it mostly delivers. For a young project that’s pretty impressive.</p>
+
+<p>To start a new application, the <code class="highlighter-rouge">crystal</code> cli offers the <code class="highlighter-rouge">init</code> command. Run this to create a new hello_world directory and application.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>crystal init app hello_world
+<span class="nb">cd </span>hello_world
+</code></pre>
+</div>
+
+<p>Then open up <code class="highlighter-rouge">src/hello_world.cr</code> and replace</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1"># TODO Put your code here</span>
+</code></pre>
+</div>
+
+<p>with</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"hello world"</span>
+</code></pre>
+</div>
+
+<p>Then, you just need to run this the <code class="highlighter-rouge">src/hello_world.cr</code> file with the <code class="highlighter-rouge">crystal</code> compiler.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>crystal src/hello_world.cr <span class="c"># prints "hello world"</span>
+</code></pre>
+</div>
+
+<p>Isn’t that stupid easy? I almost can’t believe that it’s creating a single binary file that executing my very ruby-like code.</p>
+
+<h2 id="doing-something-web-y">doing something web-y</h2>
+
+<p>My first reaction to this little hello world exercise left me excited to see what else was out there. I wanted to try doing some web stuff with Crystal, so I started to look around for some sort of web framework. A few projects popped up:</p>
+
+<ul>
+  <li><a href="https://github.com/werner/amatista">amatista</a> - Not sure what it’s relationship with <a href="https://github.com/Codcore/Amethyst">Amethyst</a> is, but I found this one first <img class="emoji" title="stuck_out_tongue_winking_eye" alt="stuck_out_tongue_winking_eye" src="https://github.global.ssl.fastly.net/images/icons/emoji/stuck_out_tongue_winking_eye.png" height="20" width="20" align="absmiddle" /></li>
+  <li><a href="https://github.com/dhruvrajvanshi/Moonshine">moonshine</a></li>
+</ul>
+
+<p>To get the ball rolling I pulled in <a href="https://github.com/werner/todo_crystal">github.com/werner/todo_crystal</a> as a stating point. Not only did it already have “web-stuff” I could read, but it was written as an example app for amatista.</p>
+
+<p>Right around here is when I realized that a <strong>very</strong> important part of the ruby experience is missing from Crystal: gems! <img class="emoji" title="scream_cat" alt="scream_cat" src="https://github.global.ssl.fastly.net/images/icons/emoji/scream_cat.png" height="20" width="20" align="absmiddle" /> There is a <a href="https://github.com/manastech/crystal/issues/220">very popular issue</a> where people are discussing what a dependency management system for Crystal should look like, but for now there is a rudimentary dependency management task provided by the cli: <code class="highlighter-rouge">crystal deps</code>. This command reads a <code class="highlighter-rouge">Packagefile</code> and uses it to pull repositories from Github into your project. To add amatista to your project you can create a <code class="highlighter-rouge">Packagefile</code> that looks like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">deps</span> <span class="k">do</span>
+  <span class="n">github</span> <span class="s2">"werner/amatista"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<p>Then, run <code class="highlighter-rouge">crystal deps</code> and it will install the amatista dependency into a <code class="highlighter-rouge">.deps</code> directory in your project. This <code class="highlighter-rouge">.deps</code> directory reminds me of node.js’s <code class="highlighter-rouge">node_modules</code> directory with a local copy of the dependencies needed for this specific project. It is a style that I really like.</p>
+
+<h2 id="maybe-a-better-name-is-emerald">maybe a better name is emerald</h2>
+
+<p>So, I’m really excited for the future of Crystal. It seems like it could be a fantastic way to write super-performant bits of a system when rust or go is too big a context switch from us who work in super high-level languages on a daily basis. For now though I’m curious to see how the dependency system issue gets resolved and what type of concurrency structures are put in place to really get the most out of the low-level at which Crystal operates.</p>
+
+<p>I did end up publishing <a href="https://github.com/spalger/crystal-mime">a little library</a> last night that will allow the different web frameworks to quit with <a href="https://github.com/werner/amatista/blob/908a6ee3890c2ebf402e5d67266548256518a89f/src/amatista/response.cr#L13-L16">this</a> <a href="https://github.com/dhruvrajvanshi/Moonshine/blob/96cabb3fc20e4412b8b0327279c4a6043be568d0/src/moonshine/http/handler.cr#L74-L80">nonsense</a> and really support static-file serving. Until the dependency system gets resolved though, I’m afraid that dependencies are only resolved one level deep, so adding this to amatista is a waste of time.</p>
+
+<p>Hopefully this project, which started development back in September 2012, will mature nicely and fight for some of rust and go’s market, for now though it is far too green for me.</p>
+
+<p>until next time,<br />
+Spencer</p>
+</span>
+      <img itemprop="image" src="https://github.global.ssl.fastly.net/images/icons/emoji/vertical_traffic_light.png" alt="Trying Crystal (the language)"/>
+      <meta itemprop="datePublished" content="2015-06-06T10:00:00-07:00"/>
+    </div>
+
+    <h1>Trying Crystal (the language)</h1>
+
+    <p class="post-meta">
+      <span class="post-meta-date">
+        Jun 6, 2015
+      </span>
+
+      <span class="post-meta-tags">
+      
+        &mdash; crystal,
+      
+        languages,
+      
+        opinion
+      
+      </span>
+
+    </p>
+  </header>
+
+  <article class="post-content">
+    <p>Last night a new-ish language named <a href="http://crystal-lang.org/">Crystal</a> had climbed to the top of <a href="https://web.archive.org/web/20150606041438/https://news.ycombinator.com/">Hacker News</a>. I was bored, I clicked through, and a magical gem convinced me I had to give Crystal a try.</p>
+
+<p><img src="/assets/crystal-lang-logo-1f2c8b528b22720552e5cac04eba6fe4.gif" alt="Crystal trance generator" class="hero-image" /></p>
+
+<h2 id="ruby-syntax-c-level-performance">ruby syntax, c-level performance</h2>
+
+<p>The front page of the projects site pretty clearly shows how similar Crystal is to ruby. Beyond the similarities in name, they both share some of the things I really like about ruby:</p>
+
+<ul>
+  <li>trailing <code class="highlighter-rouge">unless</code> and <code class="highlighter-rouge">if</code></li>
+  <li>implicit returns</li>
+  <li>funky method names, like <code class="highlighter-rouge">puts</code>, <code class="highlighter-rouge">Array#slice!</code>, and <code class="highlighter-rouge">File::exists?</code></li>
+  <li><code class="highlighter-rouge">"#{templated} string"</code></li>
+</ul>
+
+<p>And most of the things I don’t</p>
+
+<ul>
+  <li>using the <code class="highlighter-rouge">end</code> keyword to close a “block”</li>
+  <li>class getters and setters versus properties</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Doc</span>
+  <span class="n">property</span> <span class="n">breed</span>
+  <span class="n">property</span> <span class="n">weight</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="c1"># these set instance variables, which are then returned by the</span>
+    <span class="c1"># Dog#breed and Dog#weight accessor functions. They do not change</span>
+    <span class="c1"># the actually value of dog.weight or doc.breed, just the value those</span>
+    <span class="c1"># functions will return</span>
+    <span class="vi">@breed</span> <span class="o">=</span> <span class="s2">"collie"</span>
+    <span class="vi">@weight</span> <span class="o">=</span> <span class="mi">45</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<h2 id="img-classemoji-titleverticaltrafficlight-altverticaltrafficlight-srchttpsgithubglobalsslfastlynetimagesiconsemojiverticaltrafficlightpng-height20-width20-alignabsmiddle--install-with-brew"><img class="emoji" title="vertical_traffic_light" alt="vertical_traffic_light" src="https://github.global.ssl.fastly.net/images/icons/emoji/vertical_traffic_light.png" height="20" width="20" align="absmiddle" /> install with brew</h2>
+
+<p>After scanning the project’s docs I installed the compiler, which on OSX was super simple using homebrew:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>brew tap manastech/crystal
+brew install crystal
+</code></pre>
+</div>
+
+<p>This gives you the <code class="highlighter-rouge">crystal</code> cli, which can do a host of things for you. Run <code class="highlighter-rouge">crystal --help</code> for a quick run-down.</p>
+
+<h2 id="holy-hello-world-img-classemoji-titlerocket-altrocket-srchttpsgithubglobalsslfastlynetimagesiconsemojirocketpng-height20-width20-alignabsmiddle-">holy hello world <img class="emoji" title="rocket" alt="rocket" src="https://github.global.ssl.fastly.net/images/icons/emoji/rocket.png" height="20" width="20" align="absmiddle" /></h2>
+
+<p>One thing I really appreciate about Crystal is it’s devotion to keeping the experience ruby-like and it mostly delivers. For a young project that’s pretty impressive.</p>
+
+<p>To start a new application, the <code class="highlighter-rouge">crystal</code> cli offers the <code class="highlighter-rouge">init</code> command. Run this to create a new hello_world directory and application.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>crystal init app hello_world
+<span class="nb">cd </span>hello_world
+</code></pre>
+</div>
+
+<p>Then open up <code class="highlighter-rouge">src/hello_world.cr</code> and replace</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1"># TODO Put your code here</span>
+</code></pre>
+</div>
+
+<p>with</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"hello world"</span>
+</code></pre>
+</div>
+
+<p>Then, you just need to run this the <code class="highlighter-rouge">src/hello_world.cr</code> file with the <code class="highlighter-rouge">crystal</code> compiler.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>crystal src/hello_world.cr <span class="c"># prints "hello world"</span>
+</code></pre>
+</div>
+
+<p>Isn’t that stupid easy? I almost can’t believe that it’s creating a single binary file that executing my very ruby-like code.</p>
+
+<h2 id="doing-something-web-y">doing something web-y</h2>
+
+<p>My first reaction to this little hello world exercise left me excited to see what else was out there. I wanted to try doing some web stuff with Crystal, so I started to look around for some sort of web framework. A few projects popped up:</p>
+
+<ul>
+  <li><a href="https://github.com/werner/amatista">amatista</a> - Not sure what it’s relationship with <a href="https://github.com/Codcore/Amethyst">Amethyst</a> is, but I found this one first <img class="emoji" title="stuck_out_tongue_winking_eye" alt="stuck_out_tongue_winking_eye" src="https://github.global.ssl.fastly.net/images/icons/emoji/stuck_out_tongue_winking_eye.png" height="20" width="20" align="absmiddle" /></li>
+  <li><a href="https://github.com/dhruvrajvanshi/Moonshine">moonshine</a></li>
+</ul>
+
+<p>To get the ball rolling I pulled in <a href="https://github.com/werner/todo_crystal">github.com/werner/todo_crystal</a> as a stating point. Not only did it already have “web-stuff” I could read, but it was written as an example app for amatista.</p>
+
+<p>Right around here is when I realized that a <strong>very</strong> important part of the ruby experience is missing from Crystal: gems! <img class="emoji" title="scream_cat" alt="scream_cat" src="https://github.global.ssl.fastly.net/images/icons/emoji/scream_cat.png" height="20" width="20" align="absmiddle" /> There is a <a href="https://github.com/manastech/crystal/issues/220">very popular issue</a> where people are discussing what a dependency management system for Crystal should look like, but for now there is a rudimentary dependency management task provided by the cli: <code class="highlighter-rouge">crystal deps</code>. This command reads a <code class="highlighter-rouge">Packagefile</code> and uses it to pull repositories from Github into your project. To add amatista to your project you can create a <code class="highlighter-rouge">Packagefile</code> that looks like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">deps</span> <span class="k">do</span>
+  <span class="n">github</span> <span class="s2">"werner/amatista"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<p>Then, run <code class="highlighter-rouge">crystal deps</code> and it will install the amatista dependency into a <code class="highlighter-rouge">.deps</code> directory in your project. This <code class="highlighter-rouge">.deps</code> directory reminds me of node.js’s <code class="highlighter-rouge">node_modules</code> directory with a local copy of the dependencies needed for this specific project. It is a style that I really like.</p>
+
+<h2 id="maybe-a-better-name-is-emerald">maybe a better name is emerald</h2>
+
+<p>So, I’m really excited for the future of Crystal. It seems like it could be a fantastic way to write super-performant bits of a system when rust or go is too big a context switch from us who work in super high-level languages on a daily basis. For now though I’m curious to see how the dependency system issue gets resolved and what type of concurrency structures are put in place to really get the most out of the low-level at which Crystal operates.</p>
+
+<p>I did end up publishing <a href="https://github.com/spalger/crystal-mime">a little library</a> last night that will allow the different web frameworks to quit with <a href="https://github.com/werner/amatista/blob/908a6ee3890c2ebf402e5d67266548256518a89f/src/amatista/response.cr#L13-L16">this</a> <a href="https://github.com/dhruvrajvanshi/Moonshine/blob/96cabb3fc20e4412b8b0327279c4a6043be568d0/src/moonshine/http/handler.cr#L74-L80">nonsense</a> and really support static-file serving. Until the dependency system gets resolved though, I’m afraid that dependencies are only resolved one level deep, so adding this to amatista is a waste of time.</p>
+
+<p>Hopefully this project, which started development back in September 2012, will mature nicely and fight for some of rust and go’s market, for now though it is far too green for me.</p>
+
+<p>until next time,<br />
+Spencer</p>
+
+  </article>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="footer-content">
+    <h2 class="footer-heading">spalger's speakeasy</h2>
+
+    <div class="footer-cols">
+      <div class="footer-col-left">
+        <ul class="contact-list">
+          <li><a href="mailto:email@spalger.com">email@spalger.com</a></li>
+          
+          <li>
+            <a href="https://github.com/spalger">
+              <i class="fa fa-github"></i>
+              <span class="username">spalger</span>
+            </a>
+          </li>
+          
+          
+          <li>
+            <a href="https://twitter.com/spenceralger">
+              <i class="fa fa-twitter"></i>
+              <span class="username">spenceralger</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col-right">
+        <p class="text">Just sharing what I've learned, and recording things I don't want to forget.
+</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
