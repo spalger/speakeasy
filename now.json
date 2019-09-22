@@ -1,16 +1,15 @@
 {
   "version": 2,
-  "alias": ["spalger.com"],
-  "builds": [
-    {
-      "src": "public/**/*",
-      "use": "@now/static"
-    }
-  ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "/public/$1"
+      "src": "/2015/06/06/trying-crystal-lang.html",
+      "status": 301,
+      "headers": { "Location": "/post/2015-06-06-trying-crystal-lang" }
+    },
+    {
+      "src": "/2015/06/06/welcome-to-jekyll.html",
+      "status": 301,
+      "headers": { "Location": "/post/2015-06-06-spalgers-speakeasy" }
     }
   ]
 }
