@@ -797,15 +797,22 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@spalger/micro-plus@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@spalger/micro-plus/-/micro-plus-0.3.0.tgz#72d36ce5f0844a033a093cfa9aa3b35464691536"
-  integrity sha512-FkoDlHylsh2Vm6NmMOv/XX42/nvGBFMW+eGP6R0hCfgXdqzQsKAwzfcBzO3ca42OEXKlt2PBkFNIl9BJ91Rg6Q==
+"@spalger/micro-plus@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@spalger/micro-plus/-/micro-plus-0.4.0.tgz#5250c462402e65c06fafc696b94ff10ca00bab8c"
+  integrity sha512-ZtvMdLTBSpiv2C1Pyn04AtcRMj2xtQFVHtg6gJCIfQeAAvX9qrnFeyM9yMN9doRPEk/9QECLXe8MDfO8ZKNvDg==
   dependencies:
     is-stream "^2.0.0"
     jsonwebtoken "^8.5.1"
     micro "^9.3.3"
     read-only-stream "^2.0.0"
+
+"@spalger/next-plus@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@spalger/next-plus/-/next-plus-0.0.2.tgz#4b34fef8bfdf2a8d7b3b0a49368c1c3a6c147353"
+  integrity sha512-99zW9X0Mg5UCw9NDg0117xsleIJT5YsLNcA7fSl1sUgThNMrfd29Jho14MgbZptgSCQHrrPTYg0pcAlajuP2sg==
+  dependencies:
+    "@spalger/micro-plus" "^0.4.0"
 
 "@types/cheerio@^0.22.13":
   version "0.22.13"

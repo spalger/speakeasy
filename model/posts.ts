@@ -1,9 +1,8 @@
 import Path from 'path'
 
-import { WebpackRequire } from '../types/webpack'
 import { DatedPost } from './post'
 
-const POSTS_CONTEXT = ((require as any) as WebpackRequire).context(
+const POSTS_CONTEXT = (require as any).context(
   '../posts',
   false,
   /\d\d\d\d-\d\d-\d\d-[^\/]*\.md$/,
@@ -11,9 +10,9 @@ const POSTS_CONTEXT = ((require as any) as WebpackRequire).context(
 
 const DATE_RE = /^(\d\d\d\d-\d\d-\d\d)-/
 
-export const POSTS: DatedPost[] = POSTS_CONTEXT.keys()
+export const POSTS: DatedPost[] = (POSTS_CONTEXT.keys() as string[])
   .slice()
-  .sort()
+  .sort((a, b) => b.localeCompare(a))
   .map(key => {
     const post = POSTS_CONTEXT(key).default
 

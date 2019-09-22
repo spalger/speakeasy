@@ -1,4 +1,6 @@
 const Path = require('path')
+const Url = require('url')
+
 const Cheerio = require('cheerio')
 const { highlight, highlightAuto } = require('highlight.js')
 
@@ -6,7 +8,7 @@ const fm = require('front-matter')
 const { format } = require('date-fns')
 const marked = require('marked')
 
-const BASE_URL = new URL('http://localhost:3000/')
+const SITE_URL_PLACEHOLER = 'http://site_url_placeholder/'
 
 module.exports = function(source) {
   const path = this.resourcePath
@@ -56,12 +58,12 @@ module.exports = function(source) {
 
   // resolve relative image source urls
   $each('img[src]', $el => {
-    $el.attr('src', new URL($el.attr('src'), BASE_URL).href)
+    $el.attr('src', Url.resolve(SITE_URL_PLACEHOLER, $el.attr('src')))
   })
 
   // resolve relative link href urls
   $each('a[href]', $el => {
-    $el.attr('href', new URL($el.attr('href'), BASE_URL).href)
+    $el.attr('href', Url.resolve(SITE_URL_PLACEHOLER, $el.attr('href')))
   })
 
   return `export default ${JSON.stringify(

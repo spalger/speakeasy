@@ -3,9 +3,9 @@ import fetch from 'isomorphic-fetch'
 
 import { Post } from '../model/post'
 import { PostsListResp } from '../model/posts'
-import { resolveUrl } from '../model/uri'
 import { Layout } from '../ui/layout'
 import { PostListItem } from '../ui/post_list_item'
+import { getSiteUrl } from '../model/url'
 
 interface Props {
   posts: Post[]
@@ -29,9 +29,10 @@ const Home: NextPage<Props> = ({ posts }) => {
   )
 }
 
-Home.getInitialProps = async function(): Promise<Props> {
-  const resp: PostsListResp = await fetch(resolveUrl('/api/posts')).then(r =>
-    r.json(),
+Home.getInitialProps = async function({ req }): Promise<Props> {
+  const siteUrl = getSiteUrl(req ? req.headers : undefined)
+  const resp: PostsListResp = await fetch(siteUrl.resolve('/api/posts')).then(
+    r => r.json(),
   )
 
   return { posts: resp.posts }

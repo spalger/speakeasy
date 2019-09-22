@@ -16,7 +16,7 @@ export const Layout: React.SFC = ({ children }) => {
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism-tomorrow.min.css"
-        ></link>
+        />
       </Head>
 
       <header className="site-header">

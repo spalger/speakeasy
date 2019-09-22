@@ -1,9 +1,3 @@
-import { SITE } from './site'
-
-export function resolveUrl(relativeUrl: string) {
-  return new URL(relativeUrl, SITE.url).href
-}
-
 export const uri = (strings: TemplateStringsArray, ...components: string[]) => {
   const queue = Array.from(strings)
   let result = queue.shift()

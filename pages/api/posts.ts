@@ -2,12 +2,15 @@ import {
   makeNextHandler,
   NextRoute,
   parseIntQueryValue,
-} from '@spalger/micro-plus'
+} from '@spalger/next-plus'
 
 import { POSTS, PostsListResp } from '../../model/posts'
+import { injectSiteUrl } from '../../model/post'
+import { getSiteUrl } from '../../model/url'
 
 export default makeNextHandler([
   new NextRoute('GET', ctx => {
+    const siteUrl = getSiteUrl(ctx.headers)
     const pageNum = parseIntQueryValue(ctx.query, 'page', 1)
     const perPage = parseIntQueryValue(ctx.query, 'perPage', 10)
 
@@ -16,7 +19,9 @@ export default makeNextHandler([
 
     const body: PostsListResp = {
       total,
-      posts: POSTS.slice(startI, startI + perPage),
+      posts: POSTS.slice(startI, startI + perPage).map(p =>
+        injectSiteUrl(p, siteUrl),
+      ),
     }
 
     return {
