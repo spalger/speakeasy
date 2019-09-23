@@ -34,7 +34,7 @@ export const Layout: React.SFC = ({ children }) => {
           sizes="16x16"
           href="/static/favicon-16x16.png"
         />
-        <link rel="manifest" href="/static/site.webmanifest" />
+        <link rel="manifest" href="/api/site.webmanifest" />
       </Head>
 
       <header className="site-header">
