@@ -2,14 +2,11 @@ import { Url } from './url'
 
 export interface Post {
   id: string
-  date?: string
+  hide: boolean
+  date: string
   title: string
   snippet?: string
   body: string
-}
-
-export interface DatedPost extends Post {
-  date: string
 }
 
 export function injectSiteUrl<T extends Post>(post: T, siteUrl: Url) {

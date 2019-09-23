@@ -1,5 +1,4 @@
 ---
-date: 2015-06-06
 title: Trying Crystal (the language)
 snippet: Last night a new-ish language named [Crystal](http://crystal-lang.org/) had climbed to the top of [Hacker News](https://web.archive.org/web/20150606041438/https://news.ycombinator.com/). I was bored, I clicked through, and a magical gem convinced me I had to give Crystal a try.
 ---

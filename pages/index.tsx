@@ -1,41 +1,31 @@
-import { NextPage } from 'next'
-import fetch from 'isomorphic-fetch'
-
-import { Post } from '../model/post'
-import { PostsListResp } from '../model/posts'
 import { Layout } from '../ui/layout'
-import { PostListItem } from '../ui/post_list_item'
-import { getSiteUrl } from '../model/url'
 
-interface Props {
-  posts: Post[]
-}
-
-const Home: NextPage<Props> = ({ posts }) => {
+function About() {
   return (
     <Layout>
-      <div className="home">
-        <header className="page-header">
-          <h1>Posts</h1>
-        </header>
-
-        <ul className="post-list">
-          {posts.map(p => (
-            <PostListItem key={p.id} post={p} />
-          ))}
-        </ul>
+      <div className="imageMe">
+        <img
+          src="https://avatars0.githubusercontent.com/u/1329312"
+          style={{
+            width: '284px',
+            height: '284px',
+          }}
+        />
       </div>
+      <p style={{ fontSize: '1.2em', wordBreak: 'break-word' }}>
+        So... I’m a web developer and gadget fanatic who digs JavaScript, Apple,
+        and a bunch of other things. I work at{' '}
+        <a href="https://www.elastic.co">Elastic</a>. I primarily focus on{' '}
+        <a href="https://www.elastic.co/products/kibana">Kibana</a>. I read{' '}
+        <a href="https://theverge.com">The Verge</a>,{' '}
+        <a href="https://news.ycombinator.com">Hacker News</a>, and{' '}
+        <a href="http://macrumors.com/">MacRumors</a>. You can find me on
+        Twitter <a href="https://twitter.com/spalger">@spalger</a> or
+        collaborate with me on <a href="https://github.com/spalger">Github</a>.
+      </p>
+      <div style={{ clear: 'both' }} />
     </Layout>
   )
 }
 
-Home.getInitialProps = async function({ req }): Promise<Props> {
-  const siteUrl = getSiteUrl(req ? req.headers : undefined)
-  const resp: PostsListResp = await fetch(siteUrl.resolve('/api/posts')).then(
-    r => r.json(),
-  )
-
-  return { posts: resp.posts }
-}
-
-export default Home
+export default About

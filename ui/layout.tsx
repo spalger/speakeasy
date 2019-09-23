@@ -45,8 +45,8 @@ export const Layout: React.SFC = ({ children }) => {
             </Link>
           </div>
           <nav className="site-nav">
-            <Link href="/about">
-              <a className="page-link">About</a>
+            <Link href="/posts">
+              <a className="page-link">Posts</a>
             </Link>
           </nav>
         </div>
@@ -56,22 +56,10 @@ export const Layout: React.SFC = ({ children }) => {
 
       <footer className="site-footer">
         <div className="footer-content">
-          <div className="footer-cols">
-            <div className="footer-col-left">
-              <ul className="contact-list">
-                <li>
-                  <a href="https://github.com/spalger">github</a>
-                </li>
-                <li>
-                  <a href="https://twitter.com/spalger">twitter</a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="footer-col-right">
-              <p className="text">{SITE.description}</p>
-            </div>
-          </div>
+          <p>
+            <a href="https://github.com/spalger">github</a>
+            <a href="https://twitter.com/spalger">twitter</a>
+          </p>
         </div>
       </footer>
     </>

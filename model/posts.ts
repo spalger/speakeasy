@@ -1,34 +1,12 @@
-import Path from 'path'
+import { Post } from './post'
 
-import { DatedPost } from './post'
-
-const POSTS_CONTEXT = (require as any).context(
-  '../posts',
-  false,
-  /\d\d\d\d-\d\d-\d\d-[^\/]*\.md$/,
-)
-
-const DATE_RE = /^(\d\d\d\d-\d\d-\d\d)-/
-
-export const POSTS: DatedPost[] = (POSTS_CONTEXT.keys() as string[])
+const POSTS_CONTEXT = (require as any).context('../posts', false, /.*\.md$/)
+export const POSTS: Post[] = (POSTS_CONTEXT.keys() as string[])
   .slice()
-  .sort((a, b) => b.localeCompare(a))
-  .map(key => {
-    const post = POSTS_CONTEXT(key).default
-
-    if (!post.date) {
-      const date = Path.basename(key).match(DATE_RE)
-
-      return {
-        ...post,
-        date: date[1],
-      }
-    }
-
-    return post
-  })
+  .map(key => POSTS_CONTEXT(key).default as Post)
+  .sort((a, b) => b.date.localeCompare(a.date))
 
 export type PostsListResp = {
   total: number
-  posts: DatedPost[]
+  posts: Post[]
 }

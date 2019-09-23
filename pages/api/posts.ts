@@ -8,6 +8,8 @@ import { POSTS, PostsListResp } from '../../model/posts'
 import { injectSiteUrl } from '../../model/post'
 import { getSiteUrl } from '../../model/url'
 
+const VISIBLE_POSTS = POSTS.filter(p => !p.hide)
+
 export default makeNextHandler([
   new NextRoute('GET', ctx => {
     const siteUrl = getSiteUrl(ctx.headers)
@@ -15,11 +17,11 @@ export default makeNextHandler([
     const perPage = parseIntQueryValue(ctx.query, 'perPage', 10)
 
     const startI = (pageNum - 1) * perPage
-    const total = POSTS.length
+    const total = VISIBLE_POSTS.length
 
     const body: PostsListResp = {
       total,
-      posts: POSTS.slice(startI, startI + perPage).map(p =>
+      posts: VISIBLE_POSTS.slice(startI, startI + perPage).map(p =>
         injectSiteUrl(p, siteUrl),
       ),
     }

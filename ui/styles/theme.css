@@ -253,7 +253,7 @@ img.emoji {
 }
 
 .page-content {
-  padding: 4.5em 1.5em 3em;
+  padding: 4.5em 1.5em 4.5em;
   width: 800px;
   margin: auto
 }
@@ -339,4 +339,21 @@ h1 {
 
 .single-image-paragraph {
   text-align: center;
+}
+
+.footer-content a + a {
+  padding-left: 1em;
+}
+
+.imageMe {
+  float: left;
+  margin-right: 1em;
+}
+
+@media screen and (max-width: 600px) {
+  .imageMe {
+    float: none;
+    text-align: center;
+    margin-bottom: 1em;
+  }
 }

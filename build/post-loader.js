@@ -5,15 +5,23 @@ const Cheerio = require('cheerio')
 const { highlight, highlightAuto } = require('highlight.js')
 
 const fm = require('front-matter')
-const { format } = require('date-fns')
 const marked = require('marked')
 
 const SITE_URL_PLACEHOLER = 'http://site_url_placeholder/'
+const FILE_NAME_RE = /^(hide-)?((\d\d\d\d-\d\d-\d\d(?:T\d\d:\d\d)?)-.*)\.md$/
 
 module.exports = function(source) {
   const path = this.resourcePath
-  const id = Path.basename(path, '.md')
+  const fileName = Path.basename(path)
 
+  const parseFileName = fileName.match(FILE_NAME_RE)
+  if (!parseFileName) {
+    throw new Error(
+      `invalid post fileName, expected [${fileName}] to match ${FILE_NAME_RE.source}`,
+    )
+  }
+
+  const [, hide, id, date] = parseFileName
   const { attributes, body } = fm(source)
 
   if (!attributes.title) {
@@ -69,7 +77,8 @@ module.exports = function(source) {
   return `export default ${JSON.stringify(
     {
       id,
-      date: attributes.date ? format(attributes.date, 'yyyy-MM-dd') : undefined,
+      hide: !!hide,
+      date,
       title: attributes.title,
       snippet: attributes.snippet ? marked(attributes.snippet) : undefined,
       body: $.html(),
