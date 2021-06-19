@@ -1,0 +1,48 @@
+{
+  "name": "@spalger/spalger.com",
+  "private": true,
+  "license": "Apache-2.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@spalger/next-plus": "^0.0.2",
+    "@types/cheerio": "^0.22.13",
+    "@types/highlight.js": "^9.12.3",
+    "@types/isomorphic-fetch": "^0.0.35",
+    "@types/node": "^12.7.5",
+    "@types/react": "^16.9.2",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "@zeit/next-css": "^1.0.1",
+    "cheerio": "^1.0.0-rc.3",
+    "date-fns": "^2.2.1",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "file-loader": "^4.2.0",
+    "front-matter": "^3.0.2",
+    "highlight.js": "^9.15.10",
+    "isomorphic-fetch": "^2.2.1",
+    "markdown-loader": "^5.1.0",
+    "next": "^9.0.6",
+    "prettier": "^1.18.2",
+    "prop-types": "^15.7.2",
+    "raw-loader": "^3.1.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "rss": "^1.2.2",
+    "typescript": "^3.6.3",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.40.2"
+  },
+  "devDependencies": {
+    "@types/marked": "^0.6.5",
+    "@types/rss": "^0.0.28",
+    "marked": "^0.7.0"
+  }
+}
