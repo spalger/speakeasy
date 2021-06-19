@@ -1,12 +1,11 @@
-import Image from 'next/image'
-
 import { Layout } from '../ui/layout'
 
 function About() {
   return (
     <Layout>
       <div className="imageMe">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src="https://avatars0.githubusercontent.com/u/1329312"
           alt="photo of spencer"
           width={284}
