@@ -1,15 +1,16 @@
+import Image from 'next/image'
+
 import { Layout } from '../ui/layout'
 
 function About() {
   return (
     <Layout>
       <div className="imageMe">
-        <img
+        <Image
           src="https://avatars0.githubusercontent.com/u/1329312"
-          style={{
-            width: '284px',
-            height: '284px',
-          }}
+          alt="photo of spencer"
+          width={284}
+          height={284}
         />
       </div>
       <p style={{ fontSize: '1.2em', wordBreak: 'break-word' }}>
